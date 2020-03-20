@@ -1,6 +1,6 @@
 import Layout from '../../components/Layout';
 import Private from '../../components/Auth/Private';
-import ProfileUpdate from '../../components/auth/ProfileUpdate';
+import ProfileUpdate from '../../components/Auth/ProfileUpdate';
 import Link from 'next/link';
 
 const UserProfileUpdate = () => {
