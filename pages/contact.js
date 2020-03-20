@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 import Link from 'next/link';
-import ContactForm from '../components/form/ContactForm';
+import ContactForm from '../components/Form/ContactForm';
 
 const Contact = () => {
     return (
