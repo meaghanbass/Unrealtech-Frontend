@@ -49,14 +49,16 @@ const Index = ({ blogs, categories, router, blogsLimit, totalBlogs, tags }) => {
     const showMostRecent = (props) => {
         return (
             <>
-            <div className="hero" style={{backgroundImage: `url(${API}/blog/photo/${mostRecent.slug})`}}>                
-                <Link href={`/categories/${mostRecent.categories[0].slug}`}>
+            <div className="hero" style={{backgroundImage: `url(${API}/blog/photo/${mostRecent.slug})`}}> 
+                {/* added api */}
+                <Link href={`${API}/categories/${mostRecent.categories[0].slug}`}>
                     <a style={{color: `white`}}>
                         <p className="category">{mostRecent.categories[0].name}</p>
                     </a>
                 </Link>
 
-                <Link href={`/blogs/${mostRecent.slug}`}>
+                {/* added api */}
+                <Link href={`${API}/blogs/${mostRecent.slug}`}>
                     <a style={{color: `white`}}>
                         <h1>{mostRecent.title}</h1>
                     </a>
