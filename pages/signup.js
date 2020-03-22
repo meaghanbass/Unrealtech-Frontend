@@ -13,7 +13,7 @@
 // export default SignUp;
 
 import Layout from '../components/Layout';
-import SignupComponent from '../components/auth/SignupComponent';
+import SignupComponent from '../components/Auth/SignupComponent';
 import Link from 'next/link';
 
 const Signup = () => {
