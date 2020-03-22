@@ -27,7 +27,7 @@ const Navigation = () => {
                 <Navbar.Brand><Link href="/"><img src="/images/seoblog.png" /></Link></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav>
+                    {/* <Nav>
                         <div>
                         <Link href="/categories/virtual-reality"><a className="button transparent">Virtual Reality</a></Link>
                         </div>
@@ -84,6 +84,43 @@ const Navigation = () => {
                         </NavLink>
                         )}
                         </div>
+                    </Nav> */}
+                    <Nav className="ml-auto align-items-center">
+                        <Search />
+
+                        <Link href="/"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Home</a></Link>
+
+                        <Link href="/blogs"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Blogs</a></Link>
+                        
+                        <Link href="/contact"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Contact</a></Link>
+
+                        {!isAuth() && (
+                        <>
+                        <Link href="/signin"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Sign In</a></Link>
+                        <Link href="/signup"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Sign Up</a></Link>
+                        </>
+                        )}
+
+                        {isAuth() && (
+                        <NavLink className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, padding: `.375rem .75rem`, background: `lavenderblush`}} onClick={() => signout(() => Router.replace(`/signin`))}>
+                            Sign Out
+                        </NavLink>
+                        )}
+
+                        {isAuth() && isAuth().role === 0 && (
+                        <Link href="/user"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>
+                            {`${isAuth().name}'s Dashboard`}
+                            </a></Link>
+                        )}
+
+                        {isAuth() && isAuth().role === 1 && (
+                        <Link href="/admin"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>
+                            {`${isAuth().name}'s Dashboard`}
+                            </a></Link>
+                        )}
+
+                        <Link href="/user/crud/blog"><a className="ml-2 btn" style={{border: `1px solid mediumorchid`, color: `mediumorchid`, background: `lavender`}}>Create Blog</a></Link>
+
                     </Nav>
                 </Navbar.Collapse>
                 <div className="social-links">
