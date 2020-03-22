@@ -45,29 +45,44 @@ const Navigation = () => {
                         </div>
 
                         <div className="opacity-1">
-                        <NavDropdown title="More" id="basic-nav-dropdown" className="button transparent">
-                            <div className="dropdown-row">
-                                <div className="col-md-4">
-                                    <h6>Hardware</h6>
-                                    <NavDropdown.Item href="#action/3.1">Single Board Computers</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">Desktop Computers</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">Setup & Accessories</NavDropdown.Item>
+                            <NavDropdown title="More" id="basic-nav-dropdown" className="button transparent">
+                                <div className="dropdown-row">
+                                    <div className="col-md-4">
+                                        <h6>Hardware</h6>
+                                        <NavDropdown.Item href="#action/3.1">Single Board Computers</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.3">Desktop Computers</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.2">Setup & Accessories</NavDropdown.Item>
+                                    </div>
+                                    <div className="col-md-4">
+                                        <NavDropdown.Item href="#action/3.1">link</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.2">link</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.3">link</NavDropdown.Item>
+                                    </div>
+                                    <div className="col-md-4">
+                                        <NavDropdown.Item href="#action/3.1">link</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.2">link</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.3">link</NavDropdown.Item>
+                                    </div>
                                 </div>
-                                <div className="col-md-4">
-                                    <NavDropdown.Item href="#action/3.1">link</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">link</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">link</NavDropdown.Item>
+                                <div className="dropdown-row">
+                                    <Search />
                                 </div>
-                                <div className="col-md-4">
-                                    <NavDropdown.Item href="#action/3.1">link</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2">link</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3">link</NavDropdown.Item>
-                                </div>
-                            </div>
-                            <div className="dropdown-row">
-                                <Search />
-                            </div>
-                        </NavDropdown>
+                            </NavDropdown>
+                        </div>
+
+                        <div>
+                        {!isAuth() && (
+                        <>
+                        <Link href="/signin"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Sign In</a></Link>
+                        <Link href="/signup"><a className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, background: `lavenderblush`}}>Sign Up</a></Link>
+                        </>
+                        )}
+
+                        {isAuth() && (
+                        <NavLink className="ml-2 btn" style={{border: `1px solid hotpink`, color: `hotpink`, padding: `.375rem .75rem`, background: `lavenderblush`}} onClick={() => signout(() => Router.replace(`/signin`))}>
+                            Sign Out
+                        </NavLink>
+                        )}
                         </div>
                     </Nav>
                 </Navbar.Collapse>
@@ -81,10 +96,6 @@ const Navigation = () => {
                             </a>
                         </Link>
                     </div>
-
-                    {/* <div className="social-icon twitter">
-                        <Link href="/"><a className="button transparent">T</a></Link>
-                    </div> */}
                 </div>
             </Navbar>
         </>
