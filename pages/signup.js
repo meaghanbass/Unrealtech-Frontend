@@ -12,8 +12,8 @@
 
 // export default SignUp;
 
-import Layout from '../components/Layout';
-import SignupComponent from '../components/Auth/SignupComponent';
+import Layout from "../components/Layout";
+import SignUpComponent from "../components/Auth/SignUpComponent";
 import Link from 'next/link';
 
 const Signup = () => {
@@ -23,7 +23,7 @@ const Signup = () => {
                 <h2 className="text-center pt-4 pb-4">Signup</h2>
                 <div className="row">
                     <div className="col-md-6 offset-md-3">
-                        <SignupComponent />
+                        <SignUpComponent />
                     </div>
                 </div>
             </div>
